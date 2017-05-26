@@ -28,6 +28,20 @@
 			$(".carousel-prev").on("click",function(){
 				Carousel.previous();
 			});
+			$(document).keydown(function(e) {
+			    switch(e.which) {
+			        case 37: // left
+			        Carousel.previous();
+			        break;
+
+			        case 39: // right
+			        Carousel.next();
+			        break;
+
+			        default: return; // exit this handler for other keys
+			    }
+			    e.preventDefault(); // prevent the default action (scroll / move caret)
+			});
 		},
 		next:function(){
 			//ADD NEXT CODE HERE
@@ -36,7 +50,7 @@
 			} else {
 				 this.props.current_slide = 0;
 			}
-			this.update(this.props.current_slide);
+			this.update();
 		},
 		previous:function(){
 			//ADD PREVIOUS CODE HERE
@@ -45,9 +59,9 @@
 			} else {
 				this.props.current_slide = this.props.total_slides;
 			}
-			this.update(this.props.current_slide);
+			this.update();
 		},
-		update:function(current_slide){
+		update:function(){
 			//ADD UPDATE CODE HERE
 			// set transform amount according to # of slides
       		var tAmt = (100/ (this.props.total_slides+1) * this.props.current_slide) * -1;

@@ -138,20 +138,29 @@ header nav ul li {
  }
 
 
-/* Javascript active slide class */
-.page-content .main-carousel .carousel-cells article {
-	position: absolute;
-	transition: 0.6s ease;
-	/*Move slides off to the left by default*/
-	transform: translate(-100%, 0);
+
+.carousel-cells {
+  transition: transform 0.6s ease;
+  -webkit-transition: transform 0.6s ease;
+  -moz-transition: transform 0.6s ease;
+  -o-transition: transform 0.6s ease;
+  will-change: transform;
+  -webkit-will-change: transform;
+  -moz-will-change: transform;
+  -o-will-change: transform;
 }
 
-/*Set active slide to be in the viewport*/
+
+
+/*.page-content .main-carousel .carousel-cells article {
+	position: absolute;
+	transition: 0.6s ease;
+	transform: translate(-100%, 0);
+}
 .page-content .main-carousel .carousel-cells article.active {
   	transform: translate(0, 0);
 }    
-
-/*Use sibling selector to position all slides after the active slide to the right*/
 .page-content .main-carousel .carousel-cells article.active ~ article {
   	transform: translate(100%, 0);
 }
+*/
